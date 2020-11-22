@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 export default function Shop() {
     const [products] = useState ([
@@ -29,14 +31,14 @@ export default function Shop() {
     return (
         <Container fluid>
           <h1> Products </h1> 
-            <Row>
+            <Row className="justify-content-sm-center">
                 {products.map((product) => (
-                    <div>
+                    <Col xs={1} md={2} style={{textAlign: 'center', margin: '10px'}}>
                         <h3> {product.name} </h3>
                         <h4> {product.cost} </h4> 
                         <img style={{height: '200px', width: '200px'}} src={product.image} alt={product.name}></img>
                         <button>Add to cart</button>
-                    </div>
+                    </Col>
                 ))}
             </Row>
         </Container>
