@@ -11,7 +11,7 @@ function Header() {
 
 const headerStyle = { 
     background: '#CFFFE5', 
-    color: '#A9A9A9',
+    color: '#429E9D',
     textAlign: 'center',  
     margin: '20px 2px' 
 }
