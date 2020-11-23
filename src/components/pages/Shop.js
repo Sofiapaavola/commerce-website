@@ -9,7 +9,7 @@ export default function Shop() {
     const [cart, setCart] = useState([]
         );
     
-        const [products] = useState ([
+    const [products] = useState ([
         {
             name: 'Fenty MatchStix Trio',
             cost: '$30.00',
