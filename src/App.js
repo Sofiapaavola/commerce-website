@@ -8,6 +8,7 @@ import NavBar from './components/layout/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {v4 as uuid} from 'uuid';
 import axios from 'axios'; 
+import ShoppingCart from './components/pages/ShoppingCart';
 
 class App extends Component { 
 
@@ -20,7 +21,7 @@ class App extends Component {
           <Route path="/about" component={About}/>
           <Route path="/support" component={Todo}/>
           <Route path="/shop" component={Shop}/>
-
+          <Route path="/cart" component={ShoppingCart}/>
         </div>
     </Router>
     ); 
