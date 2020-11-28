@@ -9,7 +9,8 @@ import axios from 'axios';
 export class Todo extends Component {
 
     state = { 
-        todos: []
+        todos: [], 
+        title: "My Task List"
       }
     
       componentDidMount() { 
@@ -48,7 +49,7 @@ export class Todo extends Component {
     render() {
         return (
             <div >
-                <Header/>
+                <Header title={this.state.title}/>
                 <AddTodo addTodo={this.addTodo}></AddTodo>
                 <Todos todos={this.state.todos} markComplete={this.markComplete}
                 delTodo={this.delTodo}/> 

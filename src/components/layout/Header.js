@@ -1,10 +1,10 @@
-import React from 'react'; 
+import React, {useState} from 'react'; 
 import { Link } from 'react-router-dom'; 
 
-function Header() { 
+function Header(props) { 
     return ( 
         <header style={headerStyle}> 
-            <h1>My Task List</h1>
+            <h1>{props.title}</h1>
         </header>
     )
 }

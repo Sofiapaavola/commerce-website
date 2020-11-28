@@ -5,19 +5,16 @@ import Col from 'react-bootstrap/Col';
 
 export default function ShoppingCart(props) {
 
-    // const [cart, setCart] = useState([]
-        
-    //     );
 
-
-    // TODO: either use redux to share the component information between the two components 
+    // TODO: either use Redux to share the component information between the two components 
     // or change the structure around so you can pass the data between them. 
     // Parent and child.
-    
+    console.log("shopping cart", props.products)
     return (
         <Container fluid>
           <h1> Cart </h1> 
             <Row className="justify-content-sm-center">
+            
                 {/* {props.products.map((product, idx) => (
                     <Col xs={1} md={2} style={{textAlign: 'center', margin: '10px'}} key={idx}>
                         <h3> {product.name} </h3>

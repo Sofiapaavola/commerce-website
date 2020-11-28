@@ -56,7 +56,7 @@ export default function Shop() {
                     </Col>
                 ))}
             </Row>
-           <ShoppingCart products={products}/>  
+           <ShoppingCart products ={products}/>  
         </Container>
     )
 }

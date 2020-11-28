@@ -9,8 +9,6 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 export default function NavBar() {
 
-   
-
     return (
         <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="#home">sofsof's commerce site</Navbar.Brand>
