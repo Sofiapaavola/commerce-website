@@ -1,28 +1,60 @@
-import React, {useState} from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-export default function ShoppingCart(props) {
+class ShoppingCart extends Component{
 
+    render(){
+              
+        let addedItems = this.props.items.length ?
+            (  
+                this.props.items.map(item=>{
+                    return(
+                       
+                        <li className="collection-item avatar" key={item.id}>
+                                    <div className="item-img"> 
+                                        <img src={item.img} alt={item.img} className=""/>
+                                    </div>
+                                
+                                    <div className="item-desc">
+                                        <span className="title">{item.title}</span>
+                                        <p>{item.desc}</p>
+                                        <p><b>Price: {item.price}$</b></p> 
+                                        <p>
+                                            <b>Quantity: {item.quantity}</b> 
+                                        </p>
+                                        <div className="add-remove">
+                                            <Link to="/cart"><i className="material-icons">arrow_drop_up</i></Link>
+                                            <Link to="/cart"><i className="material-icons">arrow_drop_down</i></Link>
+                                        </div>
+                                        <button className="waves-effect waves-light btn pink remove">Remove</button>
+                                    </div>
+                                    
+                               </li>                        
+                    )
+                })
+            ):
 
-    // TODO: either use Redux to share the component information between the two components 
-    // or change the structure around so you can pass the data between them. 
-    // Parent and child.
-    console.log("shopping cart", props.products)
-    return (
-        <Container fluid>
-          <h1> Cart </h1> 
-            <Row className="justify-content-sm-center">
-            
-                {/* {props.products.map((product, idx) => (
-                    <Col xs={1} md={2} style={{textAlign: 'center', margin: '10px'}} key={idx}>
-                        <h3> {product.name} </h3>
-                        <h4> {product.cost} </h4> 
-                        <img style={{height: '200px', width: '200px'}} src={product.image} alt={product.name}></img>
-                    </Col>
-                ))} */}
-            </Row>
-        </Container>
-    )
+             (
+                <p>Nothing.</p>
+             )
+       return(
+            <div className="container">
+                <div className="cart">
+                    <h5>You have ordered:</h5>
+                    <ul className="collection">
+                        {addedItems}
+                    </ul>
+                </div>  
+            </div>
+       )
+    }
 }
+
+const mapStateToProps = (state)=>{
+    return{
+        items: state.addedItems
+    }
+}
+
+export default connect(mapStateToProps)(ShoppingCart)

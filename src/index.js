@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import cartReducer from './components/reducers/cartReducer';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import * as serviceWorker from './serviceWorker';
+
+const store = createStore(cartReducer);
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,3 +19,6 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+
+
