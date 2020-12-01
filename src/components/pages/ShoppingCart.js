@@ -6,7 +6,20 @@ import { removeItem,addQuantity,subtractQuantity} from '../actions/CartActions';
 
 class ShoppingCart extends Component{
 
+    handleRemove = (id)=>{
+        this.props.removeItem(id);
+    }
+    //to add the quantity
+    handleAddQuantity = (id)=>{
+        this.props.addQuantity(id);
+    }
+    //to substruct from the quantity
+    handleSubtractQuantity = (id)=>{
+        this.props.subtractQuantity(id);
+    }
+
     render(){
+        console.log("WE IN CART", this.props.items)
               
         let addedItems = this.props.items.length ?
             (  
