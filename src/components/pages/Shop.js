@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ShoppingCart from './ShoppingCart';
 import { connect } from 'react-redux';
-import { addToCart } from '../CartActions';
+import { addToCart } from '../actions/CartActions';
 
 
 class Shop extends Component{
