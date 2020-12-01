@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import ShoppingCart from './ShoppingCart';
+import Card from 'react-bootstrap/Card';
+import Header from '../layout/Header';
 import { connect } from 'react-redux';
 import { addToCart } from '../actions/CartActions';
 
@@ -47,28 +47,28 @@ class Shop extends Component{
     render(){
         let itemList = this.props.items.map(item=>{
             return(
-                <div className="card" key={item.id}>
-                        <div className="card-image">
-                            <img src={item.img} alt={item.title}/>
-                            <span className="card-title">{item.title}</span>
-                            <span to="/" className="btn-floating halfway-fab waves-effect waves-light red" onClick={()=>{this.handleClick(item.id)}}><i className="material-icons">add</i></span>
-                        </div>
-
-                        <div className="card-content">
-                            <p>{item.desc}</p>
-                            <p><b>Price: {item.price}$</b></p>
-                        </div>
-                 </div>
+                <Card style={{ width: '18rem' }} key={item.id}>
+                    <Card.Img variant="top" src={item.img} alt={item.title}/>
+                    <Card.Title>{item.title}</Card.Title>
+                    <Card.Body>
+                        <span to="/" className="btn-floating halfway-fab waves-effect waves-light red" 
+                            onClick={()=>{this.handleClick(item.id)}}>
+                            <i className="btn">add</i>
+                        </span>
+                        <p>{item.desc}</p>
+                        <p><b>Price: {item.price}$</b></p>
+                    </Card.Body>
+                 </Card>
             )
         })
 
         return(
-            <div className="container">
-                <h3 className="center">Our items</h3>
-                <div className="box">
+            <Container fluid>
+                <Header title="Our Items"></Header>
+                <Row>
                     {itemList}
-                </div>
-            </div>
+                </Row>
+            </Container>
         )
     }
 }
